@@ -17,13 +17,13 @@
         </h5>
 
         <h4>Калькулятор</h4>
-        <form action="/calc.php" method="get">
+        <?php
+        $count1 = $_GET['count1'];  //Обозначаем переменные
+        $count2 = $_GET['count2'];
+        $proc = $_GET['proc'];
+        ?>
 
-            <?php
-            $count1 = $_GET['count1'];  //Обозначаем переменные
-            $count2 = $_GET['count2'];
-            $proc = $_GET['proc'];
-            ?>
+        <form action="/calc.php" method="get">
 
             Первое число:
             <input type="number" step="any" name="count1" value="<?php echo $count1; //чтобы после нажатия на кнопку "Равно", введённые значения осталаись?>"><br><br>
@@ -42,39 +42,36 @@
 
             <button type="submit">Равно</button>
 
-
-            <?php
-
-            if ($count1 == '') {
-                echo 'ВВЕДИТЕ ПЕРВОЕ ЧИСЛО';    // Проверка на введение первого числа
-            }
-            elseif ($count2 == '') {
-                echo 'ВВЕДИТЕ ВТОРОЕ ЧИСЛО';    // Проверка на введение второго числа
-            }
-            elseif ($count2 == 0 && $proc == '/') {
-                echo 'Делить на ноль нельзя!';  // Проверка деления на ноль. Делить на ноль нельзя!
-            }
-            else {
-                // echo $count1 . ' ' . $proc . ' ' . $count2 . ' = ';
-                //выбор арифметического оператора
-                switch ($proc) {
-                    case '+':
-                        echo $count1 + $count2;
-                        break;
-                    case '-':
-                        echo $count1 - $count2;
-                        break;
-                    case '*':
-                        echo $count1 * $count2;
-                        break;
-                    case '/':
-                        echo $count1 / $count2;
-                        break;
-                }
-            }
-            ?>
-
     </form>
+        <?php
 
+        if ($count1 == '') {
+            echo 'ВВЕДИТЕ ПЕРВОЕ ЧИСЛО';    // Проверка на введение первого числа
+        }
+        elseif ($count2 == '') {
+            echo 'ВВЕДИТЕ ВТОРОЕ ЧИСЛО';    // Проверка на введение второго числа
+        }
+        elseif ($count2 == 0 && $proc == '/') {
+            echo 'Делить на ноль нельзя!';  // Проверка деления на ноль. Делить на ноль нельзя!
+        }
+        else {
+            // echo $count1 . ' ' . $proc . ' ' . $count2 . ' = ';
+            //выбор арифметического оператора
+            switch ($proc) {
+                case '+':
+                    echo $count1 + $count2;
+                    break;
+                case '-':
+                    echo $count1 - $count2;
+                    break;
+                case '*':
+                    echo $count1 * $count2;
+                    break;
+                case '/':
+                    echo $count1 / $count2;
+                    break;
+            }
+        }
+        ?>
 	</body>
 </html>

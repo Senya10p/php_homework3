@@ -21,16 +21,16 @@
 
     <?php
 
- include_once __DIR__ . '/array.php';       //Подключаем массив
+     include_once __DIR__ . '/array.php';       //Подключаем массив
 
+    //--Выводим несколько изображений, которые являются ссылками вида /image.php?id=2, где 2 - условные номер изображения-->
+
+    foreach ($images as $id => $img) {
     ?>
-
-<!--Выводим несколько изображений, которые являются ссылками вида /image.php?id=2, где 2 - условные номер изображения-->
-
-<a href="/image.php?id=1"><img src="/images/<?php echo $images[1];?>" width="30%"/></a>
-<a href="/image.php?id=2"><img src="/images/<?php echo $images[2];?>" width="30%"/></a><br>
-<a href="/image.php?id=3"><img src="/images/<?php echo $images[3];?>" width="30%"/></a>
-<a href="/image.php?id=4"><img src="/images/<?php echo $images[4];?>" width="30%"/></a><br>
+        <a href="/image.php?id=<?php echo $id; ?>"><img src="/images/<?php echo $img; ?>" height="30%"></a>
+    <?php
+    }
+    ?>
 
 </body>
 </html>
